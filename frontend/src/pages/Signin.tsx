@@ -23,7 +23,6 @@ const Signin = () => {
   const passwordRef = useRef<HTMLInputElement>(null);
 
   const signinHandler = async () => {
-    console.log(USER_URL)
     try {
       const data = {
         email: emailRef.current?.value || "",
