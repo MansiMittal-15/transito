@@ -29,7 +29,6 @@ const Signin = () => {
         password: passwordRef.current?.value || "",
       };
       const res = await axios.post(`${USER_URL}/signin`, data);
-      console.log(res);
       localStorage.setItem("token", res.data.token);
       toast.success(res.data.message);
       navigate("/dashboard");

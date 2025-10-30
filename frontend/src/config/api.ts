@@ -37,11 +37,12 @@ export const getFilteredUsers = async(search: string): Promise<User[]> =>{
 
 export const sendMoney = async({to, amount}: SendMoneyProps)=>{
   try {
+    const token = localStorage.getItem("token");
     const res = await axios.post(`${ACCOUNT_URL}/transfer`, {
       to, amount
     }, {
       headers: {
-        Authorization: "Bearer " + localStorage.getItem("token"),
+        Authorization: "Bearer " + token
       }
     });
     toast.success(res.data.message);
